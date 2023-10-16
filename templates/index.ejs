@@ -1,0 +1,28 @@
+<%- include("partials/header", { path, title: "Home"}) %>
+<div class="text-center flex flex-col justify-center items-center px-4 py-16">
+    <% if (alert) { %>
+        <div class="p-4 mb-16 w-96 bg-[#ff4444] border-2 border-[#ac3636]">
+            <%= alert %>
+        </div>
+    <% } %>
+    <h1 class="text-6xl">Limukassa</h1>
+    <p class="text-lg my-4">Yes</p>
+    <div class="flex flex-row flex-wrap w-full">
+        <div class="flex flex-row flex-wrap w-1/2">
+            <button class="bg-purple-500 py-8 px-10 m-4 text-5xl rounded-md shadow-md">1€</button>
+            <button class="bg-purple-500 py-8 px-10 m-4 text-5xl rounded-md shadow-md">1€</button>
+            <button class="bg-purple-500 py-8 px-10 m-4 text-5xl rounded-md shadow-md">1€</button>
+            <button class="bg-purple-500 py-8 px-10 m-4 text-5xl rounded-md shadow-md">1€</button>
+            <button class="bg-purple-500 py-8 px-10 m-4 text-5xl rounded-md shadow-md">1€</button>
+
+        </div>
+        <div class="flex flex-col items-center justify-center w-1/2">
+            <h1>
+                Yesihafbbigj
+            </h1>
+        </div>
+
+    </div>
+</div>
+
+<%- include("partials/footer") %>

@@ -6,7 +6,7 @@ const path = require('path');
 const dataDir = path.resolve(`${process.cwd()}${path.sep}`);
 const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 const config = require('./config.json');
-
+const {getData} = require('./utils/db');
 // set out templating engine.
 app.engine('ejs', ejs.renderFile);
 app.set('view engine', 'ejs');
@@ -32,6 +32,10 @@ const renderTemplate = (res, req, template, data = {}) => {
 app.use('/', express.static(path.resolve(`${dataDir}${path.sep}static`), {
     extensions: ['html'],
 }));
+
+app.get('/', (req, res) => renderTemplate(res, req, 'index.ejs', {alert: false}));
+app.get('/users', (req, res) => renderTemplate(res, req, 'users.ejs', {"users": getData("users")}));
+
 app.all('*', (req, res) => {
     renderTemplate(res, req, 'errors/404.ejs')
 })

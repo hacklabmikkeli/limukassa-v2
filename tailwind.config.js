@@ -12,8 +12,7 @@ module.exports = {
         colors: {
             accent: '#4b53eb',
             white: '#ffffff',
-            gray: colors.zinc,
-            sky: colors.sky,
+            gray: colors.neutral,
             blue: colors.sky,
             purple: colors.purple,
         },
