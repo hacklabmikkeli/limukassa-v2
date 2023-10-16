@@ -15,6 +15,7 @@ module.exports = {
             gray: colors.neutral,
             blue: colors.sky,
             purple: colors.purple,
+            green: colors.green
         },
         fontFamily: {
             sans: ['Nunito', 'sans-serif'],

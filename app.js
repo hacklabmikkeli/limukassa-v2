@@ -6,7 +6,8 @@ const path = require('path');
 const dataDir = path.resolve(`${process.cwd()}${path.sep}`);
 const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 const config = require('./config.json');
-const {getData} = require('./utils/db');
+const {getData, createData, delData, setData} = require('./utils/db');
+
 // set out templating engine.
 app.engine('ejs', ejs.renderFile);
 app.set('view engine', 'ejs');
@@ -33,9 +34,33 @@ app.use('/', express.static(path.resolve(`${dataDir}${path.sep}static`), {
     extensions: ['html'],
 }));
 
-app.get('/', (req, res) => renderTemplate(res, req, 'index.ejs', {alert: false}));
-app.get('/users', (req, res) => renderTemplate(res, req, 'users.ejs', {"users": getData("users")}));
+app.get('/', async (req, res) => renderTemplate(res, req, 'index.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 
+app.get('/users', async (req, res) => renderTemplate(res, req, 'users.ejs', {"users": await getData("users", {}, {all: true})}));
+app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {user: await getData("users", {id: req.params.id}, {nocreate: true})}))
+app.post("/api/user/add", async (req, res) => {
+    if(req.body.username === undefined) res.sendStatus(400)
+    if(req.body.username === "") res.sendStatus(400)
+    await createData("users",{ name: req.body.username, balance: 0 }).then(() => {
+        res.redirect("/users")
+    });
+})
+app.post("/api/transaction", async (req, res) => {
+    if(req.body.amount === undefined) res.sendStatus(400)
+    user = await getData("users", {id: 1}, {nocreate: true})
+    if(user === undefined) res.sendStatus(400)
+    await setData("users", {id: user.id}, {balance: user.balance - req.body.amount}).then(() => {
+      res.redirect("/?user="+user.id)
+    })
+})
+/*
+app.post("/api/user/del", async (req, res) => {
+    if(req.body.name == undefined) res.sendStatus(400)
+    if(req.body.name == "") res.sendStatus(400)
+    await delData("users",{ name: req.body.name }).then(() => {
+        res.redirect("/users")
+    });
+})*/
 app.all('*', (req, res) => {
     renderTemplate(res, req, 'errors/404.ejs')
 })
