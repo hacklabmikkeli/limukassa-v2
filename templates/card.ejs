@@ -1,6 +1,12 @@
 <%- include("partials/header", { path, title: "Home"}) %>
 <div class="text-center flex flex-col justify-center items-center px-4">
-    <%= JSON.stringify(user) %>
+    <h1 class="text-3xl"><%= user.name %></h1>
+    <% if (user.cards !== null) { %>
+        <%JSON.parse(user.cards).forEach(card => { %>
+         <div><p>Kortin nimi: <%=card.name + " | ID: " + card.identifier%></p></div>
+        <% }) %>
+
+    <% } %>
 </div>
 
 <%- include("partials/footer") %>
