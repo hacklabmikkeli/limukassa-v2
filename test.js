@@ -51,27 +51,31 @@ setInterval(function() {
 }, 500);*/
 
 function readCard() {
-    mfrc522.reset();
-    let response = mfrc522.findCard();
-    if (!response.status) {
-        console.log("No Card");
+    let uid;
+    let success = false;
+    while (!success) {
+        mfrc522.reset();
+        let response = mfrc522.findCard();
+        if (!response.status) {
+            console.log("No Card");
+        }
+        response = mfrc522.getUid();
+        if (!response.status) {
+            console.log("UID Scan Error");
+            return;
+        }
+        uid = response.data;
+        console.log(
+            "Card read UID: %s %s %s %s",
+            uid[0].toString(16),
+            uid[1].toString(16),
+            uid[2].toString(16),
+            uid[3].toString(16),
+        );
+        success = true
+        mfrc522.stopCrypto();
     }
-    response = mfrc522.getUid();
-    if (!response.status) {
-        console.log("UID Scan Error");
-        return;
-    }
-    const uid = response.data;
-    console.log(
-        "Card read UID: %s %s %s %s",
-        uid[0].toString(16),
-        uid[1].toString(16),
-        uid[2].toString(16),
-        uid[3].toString(16),
-    );
-
-    mfrc522.stopCrypto();
-
+    return uid
 }
 
 readCard();
