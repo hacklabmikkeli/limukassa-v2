@@ -38,6 +38,19 @@ app.get('/', async (req, res) => renderTemplate(res, req, 'index.ejs', {user: aw
 
 app.get('/users', async (req, res) => renderTemplate(res, req, 'users.ejs', {"users": await getData("users", {}, {all: true})}));
 app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {user: await getData("users", {id: req.params.id}, {nocreate: true})}))
+
+app.post("/card/:id/add", async (req, res) => {
+    if(req.params.id === undefined) res.sendStatus(400)
+    let user = await getData("users", {id: req.params.id}, {nocreate: true})
+    if(user === undefined) res.sendStatus(400)
+    if(req.body.card === undefined) res.sendStatus(400)
+    if(req.body.card === "") res.sendStatus(400)
+    await setData("users", {id: user.id}, {card: req.body.card}).then(() => {
+        res.redirect("/card/"+user.id)
+    })
+})
+
+
 app.post("/api/user/add", async (req, res) => {
     if(req.body.username === undefined) res.sendStatus(400)
     if(req.body.username === "") res.sendStatus(400)
