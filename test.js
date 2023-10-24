@@ -51,6 +51,7 @@ setInterval(function() {
 }, 500);*/
 
 function readCard() {
+    mfrc522.reset();
     let uid;
     let success = false;
     let readInterval = setInterval(function() {
@@ -78,6 +79,7 @@ function readCard() {
             clearInterval(readInterval);
             return uid
         }
+        mfrc522.stopCrypto();
     }, 500);
 }
 
