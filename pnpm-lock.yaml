@@ -20,6 +20,9 @@ dependencies:
   mfrc522-rpi:
     specifier: ^2.1.3
     version: 2.1.3
+  rpi-softspi:
+    specifier: ^1.0.5
+    version: 1.0.5
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
