@@ -57,8 +57,9 @@ function readCard() {
     let tryCount = 0;
     let readInterval = setInterval(function() {
         mfrc522.reset();
-        tryCount += tryCount
         let response = mfrc522.findCard();
+        tryCount += tryCount
+        console.log(tryCount)
         if (!response.status) {
             console.log("No Card");
             return
