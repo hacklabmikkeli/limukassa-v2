@@ -1,7 +1,7 @@
 "use strict";
 const Mfrc522 = require("mfrc522-rpi");
 const SoftSPI = require("rpi-softspi");
-
+const config = require("./config.json");
 //# This loop keeps checking for chips. If one is near it will get the UID and authenticate
 console.log("scanning...");
 console.log("Please put chip or keycard in the antenna inductive zone!");
@@ -60,6 +60,10 @@ function readCard() {
         let response = mfrc522.findCard();
         tryCount += 1
         console.log(tryCount)
+        if(tryCount > config.max_tries) {
+            clearInterval(readInterval);
+            return
+        }
         if (!response.status) {
             console.log("No Card");
             return
