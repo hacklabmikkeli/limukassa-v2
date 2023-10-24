@@ -53,7 +53,7 @@ setInterval(function() {
 function readCard() {
     let uid;
     let success = false;
-    setInterval(function() {
+    let readInterval = setInterval(function() {
         mfrc522.reset();
         let response = mfrc522.findCard();
         if (!response.status) {
@@ -74,7 +74,10 @@ function readCard() {
         );
         success = true
         mfrc522.stopCrypto();
-        if(success) return uid
+        if(success) {
+            clearInterval(readInterval);
+            return uid
+        }
     }, 500);
 }
 
