@@ -44,12 +44,9 @@ app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {user:
 app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'main.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 
 app.get('/api/reader', async (req, res) => {
-    let uid = await readCard();
-    res.write("")
-    setTimeout(() => {
+    await readCard().then((uid) => {
         res.send(uid)
-
-    }, 600*config.max_tries)
+    })
 })
 
 app.post("/card/:id/add", async (req, res) => {
