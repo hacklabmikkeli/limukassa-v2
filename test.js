@@ -51,44 +51,46 @@ setInterval(function() {
 }, 500);*/
 
 async function readCard() {
-    mfrc522.reset();
-    let uid;
-    let success = false;
-    let tryCount = 0;
-    let readInterval = setInterval(function() {
+    return new Promise((resolve, reject) => {
         mfrc522.reset();
-        let response = mfrc522.findCard();
-        tryCount += 1
-        console.log(tryCount)
-        if(tryCount > config.max_tries) {
-            clearInterval(readInterval);
-            return
-        }
-        if (!response.status) {
-            console.log("No Card");
-            return
-        }
-        response = mfrc522.getUid();
-        if (!response.status) {
-            console.log("UID Scan Error");
-            return
-        }
-        uid = response.data;
-        console.log(
-            "Card read UID: %s %s %s %s",
-            uid[0].toString(16),
-            uid[1].toString(16),
-            uid[2].toString(16),
-            uid[3].toString(16),
-        );
-        success = true
-        mfrc522.stopCrypto();
-        if(success) {
-            clearInterval(readInterval);
-            return uid
-        }
-        mfrc522.stopCrypto();
-    }, 500);
+        let uid;
+        let success = false;
+        let tryCount = 0;
+        let readInterval = setInterval(function() {
+            mfrc522.reset();
+            let response = mfrc522.findCard();
+            tryCount += 1
+            console.log(tryCount)
+            if(tryCount > config.max_tries) {
+                clearInterval(readInterval);
+                reject("Not able to read card")
+            }
+            if (!response.status) {
+                console.log("No Card");
+                reject("Not able to read card")
+            }
+            response = mfrc522.getUid();
+            if (!response.status) {
+                console.log("UID Scan Error");
+                reject("Not able to read card")
+            }
+            uid = response.data;
+            console.log(
+                "Card read UID: %s %s %s %s",
+                uid[0].toString(16),
+                uid[1].toString(16),
+                uid[2].toString(16),
+                uid[3].toString(16),
+            );
+            success = true
+            mfrc522.stopCrypto();
+            if(success) {
+                clearInterval(readInterval);
+                resolve(uid)
+            }
+            mfrc522.stopCrypto();
+        }, 500);
+    })
 }
 
 //await readCard();
