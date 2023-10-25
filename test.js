@@ -50,7 +50,7 @@ setInterval(function() {
     mfrc522.stopCrypto();
 }, 500);*/
 
-function readCard() {
+async function readCard() {
     mfrc522.reset();
     let uid;
     let success = false;
@@ -91,4 +91,8 @@ function readCard() {
     }, 500);
 }
 
-readCard();
+await readCard();
+
+module.exports = {
+    readCard
+}

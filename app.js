@@ -7,6 +7,7 @@ const dataDir = path.resolve(`${process.cwd()}${path.sep}`);
 const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 const config = require('./config.json');
 const {getData, createData, delData, setData} = require('./utils/db');
+const {readCard} = require("./test");
 
 // set out templating engine.
 app.engine('ejs', ejs.renderFile);
@@ -40,6 +41,12 @@ app.get('/users', async (req, res) => renderTemplate(res, req, 'users.ejs', {"us
 app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {user: await getData("users", {id: req.params.id}, {nocreate: true})}))
 app.get('/test', async (req, res) => renderTemplate(res, req, 'test.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
+app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'main.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
+
+app.get('/api/reader', async (req, res) => {
+    let uid = await readCard();
+    res.send(uid)
+})
 
 app.post("/card/:id/add", async (req, res) => {
     if(req.params.id === undefined) res.sendStatus(400)
