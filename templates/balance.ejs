@@ -6,7 +6,12 @@
             .then(response => response.json())
             .then(data => {
                 // Update the page with the new data
-                document.getElementById('data').innerHTML = `${data.uid}`;
+                if(data.error) {
+                    document.getElementById('data').innerHTML = `${data.error}`;
+                    return;
+                } else {
+                    document.getElementById('data').innerHTML = `${data.uid}`;
+                }
             });
     }
     window.onload = function() {
