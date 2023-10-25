@@ -6,7 +6,7 @@
             .then(response => response.json())
             .then(data => {
                 // Update the page with the new data
-                document.getElementById('data').innerHTML = `${data}`;
+                document.getElementById('data').innerHTML = `${data.uid}`;
             });
     }
 
