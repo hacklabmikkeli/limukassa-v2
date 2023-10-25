@@ -38,6 +38,8 @@ app.get('/', async (req, res) => renderTemplate(res, req, 'index.ejs', {user: aw
 
 app.get('/users', async (req, res) => renderTemplate(res, req, 'users.ejs', {"users": await getData("users", {}, {all: true})}));
 app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {user: await getData("users", {id: req.params.id}, {nocreate: true})}))
+app.get('/test', async (req, res) => renderTemplate(res, req, 'test.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
+app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 
 app.post("/card/:id/add", async (req, res) => {
     if(req.params.id === undefined) res.sendStatus(400)
