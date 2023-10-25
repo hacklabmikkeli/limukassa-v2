@@ -41,7 +41,7 @@ app.get('/users', async (req, res) => renderTemplate(res, req, 'users.ejs', {"us
 app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {user: await getData("users", {id: req.params.id}, {nocreate: true})}))
 app.get('/test', async (req, res) => renderTemplate(res, req, 'test.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
-app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'main.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
+app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'balance.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 
 app.get('/api/reader', async (req, res) => {
     await readCard().then((uid) => {
