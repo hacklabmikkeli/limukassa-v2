@@ -44,8 +44,7 @@ app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {}));
 
 app.get('/shop', async (req, res) => renderTemplate(res, req, 'main2.ejs', {}));
 
-
-app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'balance.ejs', {}));
+app.get('/balance', async (req, res) => renderTemplate(res, req, 'balance.ejs', {}));
 
 app.get('/api/reader', async (req, res) => {
     await readCard().then(async (uid) => {
