@@ -1,6 +1,6 @@
 <%- include("partials/header", { path, title: "Home"}) %>
 <div id="data"></div>
-<div class="w-[744px] h-[1133px] relative bg-neutral-900" id="main">
+<div class="w-[744px] h-[1133px] relative bg-neutral-900">
     <div class="w-[693px] h-[204px] left-[26px] top-0 absolute text-center text-neutral-200 text-[200px] font-normal font-['Bebas Neue']">Kioski</div>
     <img class="w-[500px] h-[500px] left-[483.18px] top-[591px] absolute origin-top-left rotate-[22.11deg] opacity-25" src="img/hlm-alieni.png" />
     <img class="w-[219.41px] h-[219.41px] left-[-110px] top-[628.66px] absolute origin-top-left rotate-[-29.99deg] opacity-10" src="img/hlm-alieni.png" />
@@ -36,15 +36,14 @@
                 // Update the page with the new data
                 if(data.error) {
                     document.getElementById('data').innerHTML = `${data.error}`;
-                    document.getElementById('main').remove();
 
                     const refreshButton = document.createElement('button');
-                    refreshButton.classList.add("bg-blue-500", "hover:bg-blue-700", "text-white", "font-bold", "py-2", "px-4", "rounded-md")
+                    refreshButton.classList.add("text-center", "text-neutral-200", "text-6xl", "font-normal", "font-['Bebas Neue']")
                     refreshButton.addEventListener('click', refresh)
                     refreshButton.id = 'refreshButton'
                     refreshButton.textContent = 'Refresh';
 
-                    document.getElementById('data').insertAdjacentElement('afterend', refreshButton);
+                    document.getElementById('buttons').insertAdjacentElement('afterend', refreshButton);
                     return;
                 } else if(data.uid) {
                     if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
