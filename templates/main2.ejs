@@ -16,7 +16,7 @@
             <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
             <div class="w-[284px] h-20 left-[1px] top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">MAKSA VELKA</div>
         </div>
-        <div class="w-[294px] h-[102px] left-[222px] top-[509px] absolute">
+        <div class="w-[294px] h-[102px] left-[222px] top-[509px] absolute" id="balanceButton">
             <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
             <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OMA SALDO</div>
         </div>
@@ -78,5 +78,9 @@
         localStorage.removeItem("user");
         window.location.href = "/main";
         window.location.replace("/main");
+    }
+    function balance() {
+        window.location.href = "/balance";
+        window.location.replace("/balance");
     }
 </script>
