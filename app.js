@@ -46,10 +46,9 @@ app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'balance.ejs',
 app.get('/api/reader', async (req, res) => {
     await readCard().then(async (uid) => {
         await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
-          users.find(user => JSON.parse(user.cards).includes(uid.uid)).then(user => {
-              data = {user: user, uid: uid.uid}
-              res.json(data)
-          })
+            user = users.find(user => JSON.parse(user.cards).includes(uid.uid))
+            data = {user: user, uid: uid.uid}
+            res.json(data)
         })
     })
 })
