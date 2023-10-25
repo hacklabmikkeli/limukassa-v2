@@ -91,7 +91,7 @@ async function readCard() {
     }, 500);
 }
 
-await readCard();
+//await readCard();
 
 module.exports = {
     readCard
