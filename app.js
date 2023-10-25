@@ -44,8 +44,15 @@ app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {user:
 app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'balance.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 
 app.get('/api/reader', async (req, res) => {
-    await readCard().then((uid) => {
-        res.send(uid)
+    await readCard().then(async (uid) => {
+        await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
+          users.find(user => {
+            if(JSON.parse(user.cards).contains(uid.uid)) {
+                data = {user: user, uid: uid.uid}
+                res.json(data)
+            }
+          })
+        })
     })
 })
 
