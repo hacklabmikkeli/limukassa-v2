@@ -30,7 +30,7 @@
 <script>
     function refreshPage() {
         if(localStorage.getItem("user")) {
-            data = localStorage.getItem("user")
+            data = JSON.parse(localStorage.getItem("user"));
             if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
             document.getElementById("buttons").classList.remove("hidden");
             document.getElementById('data').innerHTML = `${data.uid}`;
@@ -56,7 +56,7 @@
                         if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
                         document.getElementById("buttons").classList.remove("hidden");
                         document.getElementById('data').innerHTML = `${data.uid}`;
-                        localStorage.setItem("user", data);
+                        localStorage.setItem("user", JSON.stringify(data));
                     }
                 });
 
