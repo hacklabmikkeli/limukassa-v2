@@ -47,7 +47,7 @@ app.get('/api/reader', async (req, res) => {
     await readCard().then(async (uid) => {
         await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
           users.find(user => {
-            if(JSON.parse(user.cards).contains(uid.uid)) {
+            if(JSON.parse(user.cards).includes(uid.uid)) {
                 data = {user: user, uid: uid.uid}
                 res.json(data)
             }
