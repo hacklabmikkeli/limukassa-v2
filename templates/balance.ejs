@@ -9,10 +9,11 @@
                 document.getElementById('data').innerHTML = `${data.uid}`;
             });
     }
+    window.onload(() => {
+        refreshPage();
+    })
 
-    // Refresh the page every 5 seconds (adjust this interval as needed)
-    setInterval(refreshPage, 5000);
-</script>
+    </script>
 
 <div class="text-center flex flex-col justify-center items-center px-4">
     <h1 class="text-3xl"><span id="data"></span></h1>
