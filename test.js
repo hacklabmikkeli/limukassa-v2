@@ -64,14 +64,14 @@ async function readCard() {
             if(tryCount > config.max_tries) {
                 clearInterval(readInterval);
                 if(tryCount > config.max_tries) {
-                    resolve("Not able to read card")
+                    resolve({error: "Not able to read card"})
                 }
                 return
             }
             if (!response.status) {
                 console.log("No Card");
                 if(tryCount > config.max_tries) {
-                    resolve("Not able to read card")
+                    resolve({error: "Not able to read card"})
                 }
                 return
             }
@@ -79,7 +79,7 @@ async function readCard() {
             if (!response.status) {
                 console.log("UID Scan Error");
                 if(tryCount > config.max_tries) {
-                    resolve("Not able to read card")
+                    resolve({error: "Not able to read card"})
                 }
                 return
             }
