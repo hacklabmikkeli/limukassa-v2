@@ -63,16 +63,25 @@ async function readCard() {
             console.log(tryCount)
             if(tryCount > config.max_tries) {
                 clearInterval(readInterval);
-                resolve("Not able to read card")
+                if(tryCount > config.max_tries) {
+                    resolve("Not able to read card")
+                }
+                return
             }
             if (!response.status) {
                 console.log("No Card");
-                resolve("Not able to read card")
+                if(tryCount > config.max_tries) {
+                    resolve("Not able to read card")
+                }
+                return
             }
             response = mfrc522.getUid();
             if (!response.status) {
                 console.log("UID Scan Error");
-                resolve("Not able to read card")
+                if(tryCount > config.max_tries) {
+                    resolve("Not able to read card")
+                }
+                return
             }
             uid = response.data;
             console.log(
