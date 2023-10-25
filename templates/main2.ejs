@@ -34,8 +34,6 @@
             if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
             document.getElementById("buttons").classList.remove("hidden");
             document.getElementById('data').innerHTML = `${data.uid}`;
-            localStorage.setItem("user", data);
-
         } else {
             fetch('/api/reader')
                 .then(response => response.json())
