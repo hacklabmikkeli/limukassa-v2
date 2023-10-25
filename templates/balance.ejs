@@ -1,6 +1,21 @@
 <%- include("partials/header", { path, title: "Home"}) %>
+<script>
+    function refreshPage() {
+        // Use AJAX to get the latest GPIO data from the server
+        fetch('/api/reader')
+            .then(response => response.json())
+            .then(data => {
+                // Update the page with the new data
+                document.getElementById('data').innerHTML = `${data}`;
+            });
+    }
+
+    // Refresh the page every 5 seconds (adjust this interval as needed)
+    setInterval(refreshPage, 5000);
+</script>
+
 <div class="text-center flex flex-col justify-center items-center px-4">
-    <h1 class="text-3xl"><%= card %></h1>
+    <h1 class="text-3xl"><span id="data"></span></h1>
 </div>
 
 <%- include("partials/footer") %>
