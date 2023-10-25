@@ -1,11 +1,4 @@
 <%- include("partials/header", { path, title: "Home"}) %>
-<script>
-    function redirect() {
-        window.location.href = "/test";
-        window.location.replace("/test");
-    }
-    document.getElementById("redirectButton").addEventListener("click", redirect);
-</script>
 <div class="w-[744px] h-[1133px] relative bg-neutral-900">
     <div class="w-[693px] h-[204px] left-[26px] top-0 absolute text-center text-neutral-200 text-[200px] font-normal font-['Bebas Neue']">Kioski</div>
     <img class="w-[500px] h-[500px] left-[-220px] top-[802.18px] absolute origin-top-left rotate-[-26.10deg] opacity-25" src="img/hlm-alieni.png" />
@@ -17,3 +10,10 @@
     </button>
     <img class="w-[219.41px] h-[219.41px] left-[655.86px] top-[521.24px] absolute origin-top-left rotate-[27.07deg] opacity-10" src="img/hlm-alieni.png" />
 </div>
+<script>
+    function redirect() {
+        window.location.href = "/test";
+        window.location.replace("/test");
+    }
+    document.getElementById("redirectButton").addEventListener("click", redirect);
+</script>
