@@ -1,0 +1,16 @@
+[Unit]
+Description=Kassa
+
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/limukassa-v2
+
+ExecStart=/home/pi/.nvm/versions/node/v18.13.0/bin/node /home/pi/limukassa-v2/app.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi.user.target
