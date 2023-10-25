@@ -21,6 +21,7 @@
             <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OMA SALDO</div>
         </div>
     </div>
+    <div id="no-user"></div>
     <div class="w-[294px] h-[102px] left-[222px] top-[866px] absolute" id="exitButton">
         <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
         <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">LOPETA</div>
@@ -52,9 +53,13 @@
                         return;
                     } else if(data.uid) {
                         if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
-                        document.getElementById("buttons").classList.remove("hidden");
-                        document.getElementById('data').innerHTML = `${data.uid}`;
-                        localStorage.setItem("user", JSON.stringify(data));
+                        if(data.user == []) {
+                            document.getElementById("no-user").innerHTML = "No user found";
+                        } else {
+                            document.getElementById("buttons").classList.remove("hidden");
+                            document.getElementById('data').innerHTML = `${data.uid}`;
+                            localStorage.setItem("user", JSON.stringify(data));
+                        }
                     }
                 });
 
