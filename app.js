@@ -45,7 +45,11 @@ app.get('/cardtest', async (req, res) => renderTemplate(res, req, 'main.ejs', {u
 
 app.get('/api/reader', async (req, res) => {
     let uid = await readCard();
-    res.send(uid)
+    res.write("")
+    setTimeout(() => {
+        res.send(uid)
+
+    }, 600*config.max_tries)
 })
 
 app.post("/card/:id/add", async (req, res) => {
