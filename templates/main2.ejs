@@ -21,7 +21,7 @@
             <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OMA SALDO</div>
         </div>
     </div>
-    <div class="w-[294px] h-[102px] left-[222px] top-[866px] absolute">
+    <div class="w-[294px] h-[102px] left-[222px] top-[866px] absolute" id="exitButton">
         <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
         <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">LOPETA</div>
     </div>
@@ -67,5 +67,11 @@
     }
     function refresh() {
         window.location.reload()
+    }
+    document.getElementById("exitButton").addEventListener("click", exit);
+    function exit() {
+        localStorage.removeItem("user");
+        window.location.href = "/main";
+        window.location.replace("/main");
     }
 </script>
