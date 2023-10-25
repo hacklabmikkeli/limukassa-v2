@@ -8,7 +8,11 @@
                 // Update the page with the new data
                 if(data.error) {
                     document.getElementById('data').innerHTML = `${data.error}`;
-                    document.getElementById('data').insertAdjacentElement('afterend', '<div class="text-center flex flex-col justify-center items-center px-4"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="refresh()">Refresh</button></div>');
+                    const refreshButton = document.createElement('button');
+                    refreshButton.classList.add("bg-blue-500", "hover:bg-blue-700", "text-white", "font-bold", "py-2", "px-4", "rounded-md")
+                    refreshButton.addEventListener('click', refresh)
+                    refreshButton.textContent = 'Refresh';
+                    document.getElementById('data').insertAdjacentElement('afterend', refreshButton);
                     return;
                 } else {
                     document.getElementById('data').innerHTML = `${data.uid}`;
