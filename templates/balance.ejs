@@ -15,7 +15,7 @@
                     refreshButton.textContent = 'Refresh';
                     document.getElementById('data').insertAdjacentElement('afterend', refreshButton);
                     return;
-                } else {
+                } else if(data.uid) {
                     if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
 
                     document.getElementById('data').innerHTML = `${data.uid}`;
