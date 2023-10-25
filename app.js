@@ -42,7 +42,7 @@ app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {u
 app.get('/test', async (req, res) => renderTemplate(res, req, 'test.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
 app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {}));
 
-app.get('/shop', async (req, res) => renderTemplate(res, req, 'shop.ejs', {}));
+app.get('/shop', async (req, res) => renderTemplate(res, req, 'menu.ejs', {}));
 
 app.get('/balance', async (req, res) => renderTemplate(res, req, 'balance.ejs', {}));
 
