@@ -15,10 +15,11 @@ module.exports = {
             gray: colors.neutral,
             blue: colors.sky,
             purple: colors.purple,
-            green: colors.green
+            green: colors.green,
+            fuchsia: colors.fuchsia
         },
         fontFamily: {
-            sans: ['Nunito', 'sans-serif'],
+            sans: ['Bebas Neue', 'sans-serif']
         }
     },
     plugins: [
