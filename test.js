@@ -95,7 +95,7 @@ async function readCard() {
             mfrc522.stopCrypto();
             if(success) {
                 clearInterval(readInterval);
-                resolve(uid)
+                resolve(uid[0].toString(16) + ":" + uid[1].toString(16) + ":" + uid[2].toString(16) + ":" + uid[3].toString(16))
             }
             mfrc522.stopCrypto();
         }, 500);
