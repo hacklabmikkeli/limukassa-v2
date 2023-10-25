@@ -1,5 +1,4 @@
 <%- include("partials/header", { path, title: "Home"}) %>
-<div id="data"></div>
 <div class="w-[744px] h-[1133px] relative bg-neutral-900">
     <div class="w-[693px] h-[204px] left-[26px] top-0 absolute text-center text-neutral-200 text-[200px] font-normal font-['Bebas Neue']">Kioski</div>
     <img class="w-[500px] h-[500px] left-[483.18px] top-[591px] absolute origin-top-left rotate-[22.11deg] opacity-25" src="img/hlm-alieni.png" />
@@ -21,6 +20,7 @@
             <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OMA SALDO</div>
         </div>
     </div>
+    <p id="error"></p>
     <div id="no-user" class="hidden">
         Ei Käyttäjää
     </div>
@@ -36,14 +36,13 @@
             data = JSON.parse(localStorage.getItem("user"));
             if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
             document.getElementById("buttons").classList.remove("hidden");
-            document.getElementById('data').innerHTML = `${data.uid}`;
         } else {
             fetch('/api/reader')
                 .then(response => response.json())
                 .then(data => {
                     // Update the page with the new data
                     if(data.error) {
-                        document.getElementById('data').innerHTML = `${data.error}`;
+                        document.getElementById('error').innerHTML = `${data.error}`;
 
                         const refreshButton = document.createElement('button');
                         refreshButton.classList.add("bg-fuchsia-500", "rounded-[13px]", "text-center", "text-neutral-200", "text-6xl", "font-normal", "w-[285px]", "h-[102px]", "left-[230px]", "top-[375px]", "absolute")
@@ -59,7 +58,6 @@
                             document.getElementById("no-user").classList.remove("hidden");
                         } else {
                             document.getElementById("buttons").classList.remove("hidden");
-                            document.getElementById('data').innerHTML = `${data.uid}`;
                             localStorage.setItem("user", JSON.stringify(data));
                         }
                     }
