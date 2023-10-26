@@ -7,11 +7,11 @@
     <img class="w-[145px] h-[145px] left-[29px] top-[35px] absolute" src="img/hlm-alieni.png" />
     <img class="w-[145px] h-[145px] left-[574px] top-[35px] absolute" src="img/hlm-alieni.png" />
     <div id="buttons" class="hidden">
-        <div class="w-[285px] h-[102px] left-[230px] top-[241px] absolute">
+        <div class="w-[285px] h-[102px] left-[230px] top-[241px] absolute" id="shopButton">
             <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
             <div class="w-[285px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OSTA TUOTE</div>
         </div>
-        <div class="w-[285px] h-[102px] left-[230px] top-[375px] absolute">
+        <div class="w-[285px] h-[102px] left-[230px] top-[375px] absolute" id="debtButton">
             <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
             <div class="w-[284px] h-20 left-[1px] top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">MAKSA VELKA</div>
         </div>
@@ -81,5 +81,14 @@
     function balance() {
         window.location.href = "/balance";
         window.location.replace("/balance");
+    }
+    document.getElementById("shopButton").addEventListener("click", shop);
+    function shop() {
+        window.location.href = "/shop";
+        window.location.replace("/shop");
+    }
+    function payDebt() {
+        window.location.href = "/pay";
+        window.location.replace("/pay");
     }
 </script>
