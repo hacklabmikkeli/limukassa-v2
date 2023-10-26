@@ -927,6 +927,10 @@ video {
   padding: 4rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .p-8 {
   padding: 2rem;
 }
@@ -991,6 +995,11 @@ video {
 
 .font-normal {
   font-weight: 400;
+}
+
+.text-gray-950 {
+  --tw-text-opacity: 1;
+  color: rgb(10 10 10 / var(--tw-text-opacity));
 }
 
 .underline {
