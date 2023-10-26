@@ -89,7 +89,7 @@ app.post("/api/user/add", async (req, res) => {
         name: "card",
         identifier: req.body.cardId
     }]
-    await createData("users",{ name: req.body.username, balance: 0, cards: JSON.stringify(cards) }).then(() => {
+    await createData("users",{ name: req.body.name, balance: 0, cards: JSON.stringify(cards) }).then(() => {
         res.redirect("/")
     });
 })
