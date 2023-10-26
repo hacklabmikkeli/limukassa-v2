@@ -1054,6 +1054,14 @@ video {
   line-height: 1;
 }
 
+.text-\[100px\] {
+  font-size: 100px;
+}
+
+.text-\[150px\] {
+  font-size: 150px;
+}
+
 .text-\[200px\] {
   font-size: 200px;
 }
