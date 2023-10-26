@@ -20,9 +20,14 @@
             <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OMA SALDO</div>
         </div>
     </div>
-    <p id="error"></p>
-    <div id="no-user" class="hidden">
+    <p class="flex flex-col items-center justify-center bg-gray-600 rounded-[13px]" id="error"></p>
+    <div id="no-user"class="flex flex-col items-center justify-center bg-gray-600 rounded-[13px] "hidden">
         Ei Käyttäjää
+        <form>
+            <input type="hidden" name="cardId" id="cardId">
+            <input type="text" name="name" id="name">
+            <input class="bg-fuchsia-500 hover:bg-fuchsia-600 py-8 px-10 m-4 text-5xl rounded-md shadow-md" type="submit" value="Lisää käyttäjä">
+        </form>
     </div>
     <div class="w-[294px] h-[102px] left-[222px] top-[866px] absolute" id="exitButton">
         <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
