@@ -44,4 +44,9 @@
         window.location.href = "/menu";
         window.location.replace("/menu");
     }
+    setTimeout(function() {
+        localStorage.removeItem("user");
+        window.location.href = "/main";
+        window.location.replace("/main");
+    }, 60000 * 5);
 </script>

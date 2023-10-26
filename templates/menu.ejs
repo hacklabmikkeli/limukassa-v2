@@ -98,4 +98,9 @@
         window.location.href = "/pay";
         window.location.replace("/pay");
     }
+    setTimeout(function() {
+        localStorage.removeItem("user");
+        window.location.href = "/main";
+        window.location.replace("/main");
+    }, 60000 * 5);
 </script>
