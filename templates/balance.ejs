@@ -22,8 +22,8 @@
             data = JSON.parse(localStorage.getItem("user"));
             document.getElementById('balance').innerHTML = `${data.user[0].balance}`;
         } else {
-            window.location.href = "/shop";
-            window.location.replace("/shop");
+            window.location.href = "/menu";
+            window.location.replace("/menu");
         }
     }
     window.onload = function() {
@@ -31,7 +31,7 @@
     }
     document.getElementById("backButton").addEventListener("click", back)
     function back() {
-        window.location.href = "/shop";
-        window.location.replace("/shop");
+        window.location.href = "/menu";
+        window.location.replace("/menu");
     }
 </script>
