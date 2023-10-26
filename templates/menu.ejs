@@ -25,7 +25,7 @@
     <p class="top-[241px] absolute flex flex-col items-center justify-center bg-gray-600 rounded-[13px]" id="error"></p>
     <div id="no-user" class="top-[241px] absolute flex flex-col items-center justify-center bg-gray-600 rounded-[13px] hidden">
         Ei Käyttäjää
-        <form action="/api/user/add" method="post">
+        <form action="/api/user/add" method="post" class="flex flex-col items-center justify-center">
             <input type="hidden" name="cardId" id="cardId">
             <label for="name">Nimi</label><input class="text-gray-950 p-4 rounded-[13px]" type="text" name="name" id="name">
             <input class="bg-fuchsia-500 hover:bg-fuchsia-600 py-8 px-10 m-4 text-5xl rounded-md shadow-md" type="submit" value="Lisää käyttäjä">
