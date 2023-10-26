@@ -1029,6 +1029,10 @@ video {
   text-align: center;
 }
 
+.font-nunito {
+  font-family: Nunito, sans-serif;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1056,6 +1060,10 @@ video {
 
 .text-\[200px\] {
   font-size: 200px;
+}
+
+.text-\[20px\] {
+  font-size: 20px;
 }
 
 .text-\[40px\] {

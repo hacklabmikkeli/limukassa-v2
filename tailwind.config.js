@@ -20,7 +20,8 @@ module.exports = {
             fuchsia: colors.fuchsia
         },
         fontFamily: {
-            sans: ['Bebas Neue', 'sans-serif']
+            sans: ['Bebas Neue', 'sans-serif'],
+            nunito: ['Nunito', 'sans-serif']
         }
     },
     plugins: [
