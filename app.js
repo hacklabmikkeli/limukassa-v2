@@ -82,10 +82,15 @@ app.post("/card/:id/add", async (req, res) => {
 
 
 app.post("/api/user/add", async (req, res) => {
-    if(req.body.username === undefined) res.sendStatus(400)
-    if(req.body.username === "") res.sendStatus(400)
-    await createData("users",{ name: req.body.username, balance: 0 }).then(() => {
-        res.redirect("/users")
+    if(req.body.name === undefined) res.sendStatus(400)
+    if(req.body.name === "") res.sendStatus(400)
+    if(!req.body.cardId) res.sendStatus(400)
+    cards = [{
+        name: "card",
+        identifier: req.body.cardId
+    }]
+    await createData("users",{ name: req.body.username, balance: 0, cards: JSON.stringify(cards) }).then(() => {
+        res.redirect("/")
     });
 })
 app.post("/api/transaction", async (req, res) => {
