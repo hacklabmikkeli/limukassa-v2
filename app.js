@@ -94,12 +94,12 @@ app.post("/api/transaction", async (req, res) => {
     })
 })
 app.post("/api/addMoney", async (req, res) => {
-    if(req.body.amount === undefined) res.sendStatus(400)
-    if(req.body.user === undefined) res.sendStatus(400)
+    if(req.body.amount === undefined) return res.sendStatus(400)
+    if(req.body.user === undefined) return res.sendStatus(400)
     user = await getData("users", {id: req.body.user}, {nocreate: true})
-    if(user === undefined) res.sendStatus(400)
+    if(user === undefined) return res.sendStatus(400)
     await setData("users", {id: user.id}, {balance: user.balance + req.body.amount}).then(() => {
-        res.redirect("/menu")
+        return res.redirect("/menu")
     })
 })
 /*
