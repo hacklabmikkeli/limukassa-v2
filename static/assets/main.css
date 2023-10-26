@@ -969,6 +969,10 @@ video {
   justify-content: center;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .rounded-\[13px\] {
   border-radius: 13px;
 }
