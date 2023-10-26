@@ -986,6 +986,10 @@ video {
   padding: 1rem;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
 .p-8 {
   padding: 2rem;
 }
@@ -1062,8 +1066,8 @@ video {
   font-size: 200px;
 }
 
-.text-\[20px\] {
-  font-size: 20px;
+.text-\[25px\] {
+  font-size: 25px;
 }
 
 .text-\[40px\] {
