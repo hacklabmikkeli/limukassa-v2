@@ -35,12 +35,9 @@ app.use('/', express.static(path.resolve(`${dataDir}${path.sep}static`), {
     extensions: ['html'],
 }));
 
-app.get('/', async (req, res) => renderTemplate(res, req, 'index.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
+app.get('/', async (req, res) => renderTemplate(res, req, 'main.ejs', {}));
 
-app.get('/users', async (req, res) => renderTemplate(res, req, 'users.ejs', {"users": await getData("users", {}, {all: true})}));
-app.get("/card/:id", async (req, res) => renderTemplate(res, req, 'card.ejs', {user: await getData("users", {id: req.params.id}, {nocreate: true})}))
-app.get('/test', async (req, res) => renderTemplate(res, req, 'shop.ejs', {user: await getData("users", {id: req.query.user}, {nocreate: true})}));
-app.get('/main', async (req, res) => renderTemplate(res, req, 'main.ejs', {}));
+app.get('/users', async (req, res) => renderTemplate(res, req, 'admin/users.ejs', {"users": await getData("users", {}, {all: true})}));
 
 app.get('/menu', async (req, res) => renderTemplate(res, req, 'menu.ejs', {}));
 
@@ -49,7 +46,6 @@ app.get('/shop', async (req, res) => renderTemplate(res, req, 'shop.ejs', {}));
 app.get('/balance', async (req, res) => renderTemplate(res, req, 'balance.ejs', {}));
 
 app.get('/pay', async (req, res) => renderTemplate(res, req, 'pay.ejs', {}));
-
 
 app.get('/api/reader', async (req, res) => {
     await readCard().then(async (uid) => {
