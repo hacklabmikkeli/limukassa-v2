@@ -20,7 +20,7 @@
     function refreshPage() {
         if (localStorage.getItem("user")) {
             data = JSON.parse(localStorage.getItem("user"));
-            fetch('/api/reader')
+            fetch('/api/updateData/' + data.user[0].id)
                 .then(response => response.json())
                 .then(user => {
                     data.user = user;
