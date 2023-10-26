@@ -16,8 +16,9 @@
     </div>
     <div class="w-[749px] h-[102px] left-[-2px] top-[238px] absolute bg-fuchsia-500 rounded-[13px]"></div>
     <div class="w-[502px] h-20 left-[122px] top-[260px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">VELAN VÄHENNYS</div>
-    <form>
-        <input class="w-[502px] h-20 left-[122px] top-[400px] absolute text-center text-stone-900 text-6xl font-normal font-['Bebas Neue'] bg-gray-200 rounded-[13px]" type="number" name="maksu" id="maksu" placeholder="20"/>
+    <form method="post" action="/api/addMoney">
+        <input type="hidden" id="userField">
+        <input class="w-[502px] h-20 left-[122px] top-[400px] absolute text-center text-stone-900 text-6xl font-normal font-['Bebas Neue'] bg-gray-200 rounded-[13px]" type="number" name="amount" id="amount" placeholder="20"/>
     </form>
 </div>
 
@@ -25,6 +26,7 @@
     function refreshPage() {
         if (localStorage.getItem("user")) {
             data = JSON.parse(localStorage.getItem("user"));
+            document.getElementById("userField").value = data.id;
         } else {
             window.location.href = "/menu";
             window.location.replace("/menu");
