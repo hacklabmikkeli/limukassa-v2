@@ -66,6 +66,13 @@ app.get('/api/reader', async (req, res) => {
     })
 })
 
+app.get('/api/updateData/:id', async (req, res) => {
+    await getData("users", {id: req.params.id}, {nocreate: true, all: true}).then(async (user) => {
+        res.json(user)
+        return
+    })
+})
+
 app.post("/card/:id/add", async (req, res) => {
     if(req.params.id === undefined) res.sendStatus(400)
     let user = await getData("users", {id: req.params.id}, {nocreate: true})
