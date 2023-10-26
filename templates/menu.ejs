@@ -25,7 +25,7 @@
         Ei Käyttäjää
         <form>
             <input type="hidden" name="cardId" id="cardId">
-            <input type="text" name="name" id="name">
+            <label for="name">Nimi</label><input class="text-gray-950 p-4 rounded-[13px]" type="text" name="name" id="name">
             <input class="bg-fuchsia-500 hover:bg-fuchsia-600 py-8 px-10 m-4 text-5xl rounded-md shadow-md" type="submit" value="Lisää käyttäjä">
         </form>
     </div>
@@ -67,6 +67,7 @@
                         if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
                         if(data.user.length === 0) {
                             document.getElementById("no-user").classList.remove("hidden");
+                            document.getElementById("cardId").value = data.uid;
                         } else {
                             document.getElementById("buttons").classList.remove("hidden");
                             localStorage.setItem("user", JSON.stringify(data));
