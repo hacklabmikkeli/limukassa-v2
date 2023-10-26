@@ -24,6 +24,12 @@
     function refreshPage() {
         if (localStorage.getItem("user")) {
             data = JSON.parse(localStorage.getItem("user"));
+            fetch('/api/updateData/' + data.user[0].id)
+                .then(response => response.json())
+                .then(user => {
+                    data.user = user;
+                    localStorage.setItem("user", JSON.stringify(data));
+                });
             document.getElementById("userField").value = data.user[0].id;
         } else {
             window.location.href = "/menu";
