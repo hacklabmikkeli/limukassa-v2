@@ -25,8 +25,8 @@
                 .then(user => {
                     data.user = user;
                     localStorage.setItem("user", JSON.stringify(data));
+                    document.getElementById('balance').innerHTML = `${data.user[0].balance}`;
                 });
-            document.getElementById('balance').innerHTML = `${data.user[0].balance}`;
         } else {
             window.location.href = "/menu";
             window.location.replace("/menu");

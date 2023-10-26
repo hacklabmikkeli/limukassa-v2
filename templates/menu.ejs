@@ -34,6 +34,12 @@
     function refreshPage() {
         if(localStorage.getItem("user")) {
             data = JSON.parse(localStorage.getItem("user"));
+            fetch('/api/updateData/' + data.user[0].id)
+                .then(response => response.json())
+                .then(user => {
+                    data.user = user;
+                    localStorage.setItem("user", JSON.stringify(data));
+                });
             if(document.getElementById('refreshButton')) document.getElementById('refreshButton').remove();
             document.getElementById("buttons").classList.remove("hidden");
         } else {
