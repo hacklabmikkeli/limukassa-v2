@@ -13,6 +13,9 @@
     <img class="w-[219.41px] h-[219.41px] left-[655.86px] top-[521.24px] absolute origin-top-left rotate-[27.07deg] opacity-10" src="img/hlm-alieni.png" />
 </div>
 <script>
+    window.onload = function() {
+        localStorage.removeItem("user")
+    }
     function redirect() {
         window.location.href = "/menu";
         window.location.replace("/menu");
