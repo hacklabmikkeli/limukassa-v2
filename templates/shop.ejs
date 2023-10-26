@@ -6,7 +6,7 @@
     <img class="w-[219.41px] h-[219.41px] left-[125.97px] top-[837px] absolute origin-top-left rotate-[33.15deg] opacity-10" src="img/hlm-alieni.png" />
     <img class="w-[145px] h-[145px] left-[29px] top-[35px] absolute" src="img/hlm-alieni.png" />
     <img class="w-[145px] h-[145px] left-[574px] top-[35px] absolute" src="img/hlm-alieni.png" />
-    <div class="w-[294px] h-[102px] left-[222px] top-[917px] absolute">
+    <div class="w-[294px] h-[102px] left-[222px] top-[917px] absolute" id="backButton">
         <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
         <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">TAKAISIN</div>
     </div>
@@ -16,3 +16,21 @@
     <img class="w-[251px] h-[201px] left-[423px] top-[391px] absolute" src="img/lataa%202.png" />
     <img class="w-[300px] h-[168px] left-[223px] top-[669px] absolute" src="img/lataa%203.png" />
 </div>
+<script>
+    function refreshPage() {
+        if (localStorage.getItem("user")) {
+            data = JSON.parse(localStorage.getItem("user"));
+        } else {
+            window.location.href = "/menu";
+            window.location.replace("/menu");
+        }
+    }
+    window.onload = function() {
+        refreshPage()
+    }
+    document.getElementById("backButton").addEventListener("click", back)
+    function back() {
+        window.location.href = "/menu";
+        window.location.replace("/menu");
+    }
+</script>
