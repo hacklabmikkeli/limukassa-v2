@@ -1,6 +1,27 @@
 html {
-    background: #333333;
+    background: #171717;
 }
 .bg-\[\#ec008c\] {
     background:#ec008c;
+}
+.bg-gray-200 {
+    background: #e5e5e5;
+}
+.bg-gray-600 {
+    background: #525252;
+}
+.bg-gray-700 {
+    background: #404040;
+}
+.bg-gray-800 {
+    background: #262626;
+}
+.bg-green-500 {
+    background: #22c55e;
+}
+.border-gray-500 {
+    border-color: #737373;
+}
+.border-gray-600 {
+    border-color: #525252;
 }
