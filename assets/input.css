@@ -5,6 +5,5 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background: #333333;
     @apply bg-gray-900 text-white;
 }
