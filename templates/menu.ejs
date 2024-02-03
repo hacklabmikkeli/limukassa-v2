@@ -10,15 +10,15 @@
     <img class="w-[219.41px] h-[219.41px] left-[125.97px] top-[765px] absolute origin-top-left rotate-[33.15deg] opacity-10" src="img/hlm-alieni.png" />
     <div id="buttons" class="hidden">
         <div class="w-[285px] h-[102px] left-[230px] top-[241px] absolute" id="shopButton">
-            <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
+            <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-[#ec008c] rounded-[13px]"></div>
             <div class="w-[285px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OSTA TUOTE</div>
         </div>
         <div class="w-[285px] h-[102px] left-[230px] top-[375px] absolute" id="debtButton">
-            <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
+            <div class="w-[285px] h-[102px] left-0 top-0 absolute bg-[#ec008c] rounded-[13px]"></div>
             <div class="w-[284px] h-20 left-[1px] top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">MAKSA VELKA</div>
         </div>
         <div class="w-[294px] h-[102px] left-[222px] top-[509px] absolute" id="balanceButton">
-            <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
+            <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-[#ec008c] rounded-[13px]"></div>
             <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">OMA SALDO</div>
         </div>
     </div>
@@ -28,11 +28,11 @@
         <form action="/api/user/add" method="post" class="flex flex-col items-center justify-center">
             <input type="hidden" name="cardId" id="cardId">
             <label class="text-[40px]" for="name">Anna Nimi</label><input class="text-gray-950 p-6 rounded-[13px] text-center text-[25px] font-nunito" type="text" name="name" id="name">
-            <input class="bg-fuchsia-500 hover:bg-fuchsia-600 py-8 px-10 m-4 text-5xl rounded-md shadow-md" type="submit" value="Lisää käyttäjä">
+            <input class="bg-[#ec008c] hover:bg-[#af0068] py-8 px-10 m-4 text-5xl rounded-md shadow-md" type="submit" value="Lisää käyttäjä">
         </form>
     </div>
     <div class="w-[294px] h-[102px] left-[222px] top-[866px] absolute" id="exitButton">
-        <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-fuchsia-500 rounded-[13px]"></div>
+        <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-[#ec008c] rounded-[13px]"></div>
         <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">LOPETA</div>
     </div>
 </div>
@@ -58,7 +58,7 @@
                         document.getElementById('error').innerHTML = `${data.error}`;
 
                         const refreshButton = document.createElement('button');
-                        refreshButton.classList.add("bg-fuchsia-500", "rounded-[13px]", "text-center", "text-neutral-200", "text-6xl", "font-normal", "w-[285px]", "h-[102px]", "left-[230px]", "top-[375px]", "absolute")
+                        refreshButton.classList.add("bg-[#ec008c]", "rounded-[13px]", "text-center", "text-neutral-200", "text-6xl", "font-normal", "w-[285px]", "h-[102px]", "left-[230px]", "top-[375px]", "absolute")
                         refreshButton.addEventListener('click', refresh)
                         refreshButton.id = 'refreshButton'
                         refreshButton.textContent = 'Refresh';
