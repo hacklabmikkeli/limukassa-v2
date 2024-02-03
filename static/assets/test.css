@@ -25,3 +25,18 @@ html {
 .border-gray-600 {
     border-color: #525252;
 }
+.text-gray-200 {
+    color: #e5e5e5;
+}
+.text-gray-500 {
+    color: #737373;
+}
+.text-gray-950 {
+    color: #0a0a0a;
+}
+.text-neutral-200 {
+    color: #e5e5e5;
+}
+.text-stone-900 {
+    color: #1c1917;
+}
