@@ -1,8 +1,8 @@
 [Unit]
 Description=Kassa
 
-Wants=network.target
-After=network.target
+After=graphical.target
+Requires=network.target
 
 [Service]
 User=root
@@ -13,4 +13,4 @@ Environment=NODE_ENV=production
 WorkingDirectory=/home/pi/limukassa-v2
 
 [Install]
-WantedBy=multi.user.target
+WantedBy=multi.user.target default.target
