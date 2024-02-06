@@ -107,7 +107,7 @@ app.post("/api/addMoney", async (req, res) => {
     if(req.body.user === undefined) return res.sendStatus(400)
     user = await getData("users", {id: req.body.user}, {nocreate: true})
     if(user === undefined) return res.sendStatus(400)
-    await setData("users", {id: user.id}, {balance: parseInt(user.balance) + parseInt(req.body.amount)}).then(() => {
+    await setData("users", {id: user.id}, {balance: parseFloat(user.balance) + parseFloat(req.body.amount)}).then(() => {
         return res.redirect("/menu")
     })
 })
