@@ -16,7 +16,7 @@
     <div class="w-[502px] h-20 left-[122px] top-[260px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">VELAN VÄHENNYS</div>
     <form method="post" action="/api/addMoney">
         <input type="hidden" id="userField" name="user">
-        <input class="w-[502px] h-20 left-[122px] top-[400px] absolute text-center text-stone-900 text-6xl font-normal font-['Bebas Neue'] bg-gray-200 rounded-[13px] text-gray-950" type="number" name="amount" id="amount" placeholder="20" min="1" max="9999"/>
+        <input class="w-[502px] h-20 left-[122px] top-[400px] absolute text-center text-stone-900 text-6xl font-normal font-['Bebas Neue'] bg-gray-200 rounded-[13px] text-gray-950" type="number" name="amount" id="amount" placeholder="20" min="0.5" max="9999" step=".01"/>
 
         <input class="w-[285px] h-[102px] left-[230px] top-[519px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue'] bg-[#ec008c] rounded-[13px]" type="submit" value="MAKSA VELKA"/>
     </form>
