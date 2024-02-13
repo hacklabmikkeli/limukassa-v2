@@ -8,7 +8,6 @@ const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 const config = require('./config.json');
 const {getData, createData, delData, setData} = require('./utils/db');
 const {readCard} = require("./test");
-const {printDept} = require("./print");
 
 // set out templating engine.
 app.engine('ejs', ejs.renderFile);
@@ -109,13 +108,6 @@ app.post("/api/addMoney", async (req, res) => {
     if(user === undefined) return res.sendStatus(400)
     await setData("users", {id: user.id}, {balance: parseFloat(user.balance) + parseFloat(req.body.amount)}).then(() => {
         return res.redirect("/menu")
-    })
-})
-
-app.post('/api/printDept', async (req, res) => {
-    await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
-        await printDept(users);
-        return res.sendStatus(200);
     })
 })
 
