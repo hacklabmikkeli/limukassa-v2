@@ -8,6 +8,7 @@ const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 const config = require('./config.json');
 const {getData, createData, delData, setData} = require('./utils/db');
 const {readCard} = require("./test");
+const {printDept} = require("./print");
 
 // set out templating engine.
 app.engine('ejs', ejs.renderFile);
@@ -68,7 +69,10 @@ app.get('/api/updateData/:id', async (req, res) => {
         return
     })
 })
-
+app.post('/api/printDept', async (req, res) => {
+  await printDept();
+  return res.sendStatus(200);
+})
 app.post("/card/:id/add", async (req, res) => {
     if(req.params.id === undefined) res.sendStatus(400)
     let user = await getData("users", {id: req.params.id}, {nocreate: true})
