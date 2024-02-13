@@ -71,7 +71,7 @@ app.get('/api/updateData/:id', async (req, res) => {
 })
 app.post('/api/printDept', async (req, res) => {
     await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
-        console.log(users)
+        await printDept(users);
         return res.sendStatus(200);
     })
 })
