@@ -37,9 +37,11 @@ function print(users) {
         })
     })
 }
-function printDept(users) {
-    print(users)
-    return;
+async function printDept(users) {
+    return new Promise((resolve, reject) => {
+        print(users)
+        resolve()
+    })
 }
 
 module.exports = {
