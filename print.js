@@ -44,7 +44,7 @@ function printDept() {
     return;
 }
 
-exports = {
+module.exports = {
     printDept
 
 }
