@@ -41,10 +41,8 @@ function printDept(users) {
     return;
 }
 
-module.exports = {
-    printDept
+exports.printDept = printDept
 
-}
 function space(str, leading) {
     let spaces = "                                          "
     return spaces.substring(0, 42 - leading.length - str.length)
