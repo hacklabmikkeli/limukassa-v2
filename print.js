@@ -7,6 +7,7 @@ const hlmLogo = path.join(__dirname, 'hlm.png');
 
 const options = {encoding: "GB18030"}
 const printer = new escpos.Printer(usbDevice, options);
+const config = require("./config.json");
 
 function print(users) {
     console.log("Printing")
