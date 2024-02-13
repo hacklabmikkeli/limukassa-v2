@@ -1,5 +1,4 @@
 const escpos = require('escpos');
-const {getData} = require("./utils/db");
 escpos.USB = require('escpos-usb');
 const usbDevice = new escpos.USB(0x0483, 0x5743);
 const devices = escpos.USB.findPrinter();
