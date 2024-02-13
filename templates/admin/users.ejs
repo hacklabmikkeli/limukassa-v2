@@ -18,7 +18,7 @@
                             <td class="border border-gray-500 p-4 text-gray-200"><%= row.name.replace('"', '').replace('"', '') %></td>
                             <td class="border border-gray-500 p-4 text-gray-200"><%= row.balance %></td>
                             <td class="border border-gray-500 p-4 text-gray-200">
-                                <%= JSON.parse(row.cards).toString() %%>
+                                <%= JSON.stringify(row.cards) %%>
                             </td>
                         </tr>
                     <% }) %>
