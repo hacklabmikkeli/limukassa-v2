@@ -8,6 +8,7 @@ const hlmLogo = path.join(__dirname, 'hlm.png');
 const options = {encoding: "GB18030"}
 const printer = new escpos.Printer(usbDevice, options);
 const config = require("./config.json");
+const {getData} = require("./utils/db");
 
 function print(users) {
     console.log("Printing")
@@ -37,16 +38,14 @@ function print(users) {
         })
     })
 }
-async function printDept(users) {
-    return new Promise((resolve, reject) => {
+function printDept(users) {
+    getData("users", {}, {nocreate: true, all: true}).then(async (user) => {
         print(users)
-        resolve()
+        return
     })
 }
 
-module.exports = {
-    printDept
-}
+printDept()
 function space(str, leading) {
     let spaces = "                                          "
     return spaces.substring(0, 42 - leading.length - str.length)
