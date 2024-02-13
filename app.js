@@ -69,12 +69,6 @@ app.get('/api/updateData/:id', async (req, res) => {
         return
     })
 })
-app.post('/api/printDept', async (req, res) => {
-    await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
-        await printDept(users);
-        return res.sendStatus(200);
-    })
-})
 app.post("/card/:id/add", async (req, res) => {
     if(req.params.id === undefined) res.sendStatus(400)
     let user = await getData("users", {id: req.params.id}, {nocreate: true})
@@ -117,6 +111,7 @@ app.post("/api/addMoney", async (req, res) => {
         return res.redirect("/menu")
     })
 })
+
 /*
 app.post("/api/user/del", async (req, res) => {
     if(req.body.name == undefined) res.sendStatus(400)
