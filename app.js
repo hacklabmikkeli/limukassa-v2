@@ -70,8 +70,10 @@ app.get('/api/updateData/:id', async (req, res) => {
     })
 })
 app.post('/api/printDept', async (req, res) => {
-  await printDept();
-  return res.sendStatus(200);
+    await getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
+        await printDept(users);
+        return res.sendStatus(200);
+    })
 })
 app.post("/card/:id/add", async (req, res) => {
     if(req.params.id === undefined) res.sendStatus(400)

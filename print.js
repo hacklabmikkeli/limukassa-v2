@@ -37,10 +37,8 @@ function print(users) {
         })
     })
 }
-function printDept() {
-    getData("users", {}, {nocreate: true, all: true}).then(async (users) => {
-        print(users)
-    })
+function printDept(users) {
+    print(users)
     return;
 }
 
