@@ -1,0 +1,49 @@
+<%- include("partials/header", { path, title: "Home"}) %>
+<div class="w-[744px] h-[1133px] relative bg-neutral-900 select-none overflow-x-hidden">
+    <div class="flex flex-row flex-nowrap justify-center items-center h-[200px]">
+        <img class="h-[150px]" src="img/hlm-alieni.png" />
+        <div class="text-center text-neutral-200 text-[200px] font-normal font-['Bebas Neue'] mt-[20px]">Kioski</div>
+        <img class="h-[150px]" src="img/hlm-alieni.png" />
+    </div>
+    <img class="w-[500px] h-[500px] left-[483.18px] top-[591px] absolute origin-top-left rotate-[22.11deg] opacity-25" src="img/hlm-alieni.png" />
+    <img class="w-[219.41px] h-[219.41px] left-[-110px] top-[628.66px] absolute origin-top-left rotate-[-29.99deg] opacity-10" src="img/hlm-alieni.png" />
+    <img class="w-[219.41px] h-[219.41px] left-[125.97px] top-[765px] absolute origin-top-left rotate-[33.15deg] opacity-10" src="img/hlm-alieni.png" />
+    <div class="w-[294px] h-[102px] left-[222px] top-[916px] absolute" id="backButton">
+        <div class="w-[285px] h-[102px] left-[8px] top-0 absolute bg-[#ec008c] rounded-[13px]"></div>
+        <div class="w-[294px] h-20 left-0 top-[22px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">TAKAISIN</div>
+    </div>
+    <div class="w-[749px] h-[102px] left-[-2px] top-[238px] absolute bg-[#ec008c] rounded-[13px]"></div>
+    <div class="w-[502px] h-20 left-[122px] top-[260px] absolute text-center text-neutral-200 text-6xl font-normal font-['Bebas Neue']">VELAN VÄHENNYS</div>
+
+</div>
+
+<script>
+    function refreshPage() {
+        if (localStorage.getItem("user")) {
+            data = JSON.parse(localStorage.getItem("user"));
+            fetch('/api/updateData/' + data.user[0].id)
+                .then(response => response.json())
+                .then(user => {
+                    data.user = user;
+                    localStorage.setItem("user", JSON.stringify(data));
+                });
+            //document.getElementById("userField").value = data.user[0].id;
+        } else {
+            window.location.href = "/menu";
+            window.location.replace("/menu");
+        }
+    }
+    window.onload = function() {
+        refreshPage()
+    }
+    document.getElementById("backButton").addEventListener("click", back)
+    function back() {
+        window.location.href = "/menu";
+        window.location.replace("/menu");
+    }
+    setTimeout(function() {
+        localStorage.removeItem("user");
+        window.location.href = "/";
+        window.location.replace("/");
+    }, 60000);
+</script>
